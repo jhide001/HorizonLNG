@@ -51,5 +51,11 @@ public class Main {
         } else {
             System.out.println("Deal not found");
         }
+
+        System.out.println("");
+        System.out.println("=== Active Deals Only ===");
+        for (EndurDeal deal : repo.getActiveDeals()) {
+            System.out.println(deal);
+        }
     }
 }

@@ -9,6 +9,7 @@ public class DealRepository {
         deals = new ArrayList<>();
         dealMap = new HashMap<>();
     }
+
     public void addDeal(EndurDeal deal) {
         deals.add(deal);
         dealMap.put(deal.getTranNum(), deal);
@@ -17,13 +18,30 @@ public class DealRepository {
     public ArrayList<EndurDeal> getDeals() {
         return deals;
     }
+
     public EndurDeal findByTranNum(int tranNum) {
         return dealMap.get(tranNum);
     }
+
     public int getDealCount() {
         return deals.size();
+    }
 
+    public ArrayList<EndurDeal> getActiveDeals() {
+        ArrayList<EndurDeal> activeDeals = new ArrayList<>();
+        for (EndurDeal deal : deals) {
+            if (deal.isActive()) {
+                activeDeals.add(deal);
+            }
+
+        }
+
+        return activeDeals;
+    }
 
 }
 
-}
+
+
+
+
