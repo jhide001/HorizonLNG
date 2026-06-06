@@ -57,5 +57,16 @@ public class Main {
         for (EndurDeal deal : repo.getActiveDeals()) {
             System.out.println(deal);
         }
+        System.out.println("");
+        System.out.println("=== Shell Trading Deals ===");
+        for (EndurDeal deal : repo.findByCounterparty("Shell Trading")) {
+            System.out.println(deal);
+        }
+
     }
 }
+
+
+
+
+

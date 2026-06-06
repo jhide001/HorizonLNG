@@ -39,6 +39,15 @@ public class DealRepository {
         return activeDeals;
     }
 
+    public ArrayList<EndurDeal> findByCounterparty(String counterparty) {
+        ArrayList<EndurDeal> result = new ArrayList<>();
+        for (EndurDeal deal : deals) {
+            if (deal.getCounterparty().equals(counterparty)) {
+                result.add(deal);
+            }
+        }
+        return result;
+    }
 }
 
 
