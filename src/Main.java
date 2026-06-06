@@ -9,13 +9,13 @@ public class Main {
 
         DealRepository repo = new DealRepository();
         repo.addDeal(new EndurDeal(1005, "Validated", 127500.00,
-                "Shell Trading", "LNG"));
+                "Shell Trading", "LNG", 50000.0));
         repo.addDeal(new EndurDeal(1012, "Matured", 95000.00,
-                "TotalEnergies", "Natural Gas"));
+                "TotalEnergies", "Natural Gas", 75000.0));
         repo.addDeal(new EndurDeal(1037, "Cancelled", 0.00,
-                "CNOOC", "LNG"));
+                "CNOOC", "LNG", 100000.0));
         repo.addDeal(new EndurDeal(1041, "Validated", 132000.00,
-                "Cheniere Energy", "LNG"));
+                "Cheniere Energy", "LNG", 25000.0));
 
         double currentMarketPrice = 140000.00;
         int processedCount = 0;
