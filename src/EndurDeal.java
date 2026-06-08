@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public class EndurDeal {
     private int tranNum;
-    private String tranStatus;
+    private TranStatus tranStatus;
     private double dealPrice;
     private String counterparty;
     private String commodity;
     private double volume;
 
-    public EndurDeal(int tranNum, String tranStatus, double dealPrice,
+    public EndurDeal(int tranNum, TranStatus tranStatus, double dealPrice,
                      String counterparty, String commodity, double volume) {
         this.tranNum = tranNum;
         this.tranStatus = tranStatus;
@@ -19,14 +19,14 @@ public class EndurDeal {
     }
 
     public int getTranNum() { return tranNum; }
-    public String getTranStatus() { return tranStatus; }
+    public TranStatus getTranStatus() { return tranStatus; }
     public double getDealPrice() { return dealPrice; }
     public String getCounterparty() { return counterparty; }
     public String getCommodity() { return commodity; }
     public double getVolume() { return volume; }
 
     public boolean isActive() {
-        return tranStatus.equals("Validated");
+        return tranStatus == TranStatus.VALIDATED;
     }
 
     public double calculateMTM(double marketPrice) {

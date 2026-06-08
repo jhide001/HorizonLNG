@@ -8,13 +8,13 @@ public class Main {
         System.out.println("");
 
         DealRepository repo = new DealRepository();
-        repo.addDeal(new EndurDeal(1005, "Validated", 127500.00,
+        repo.addDeal(new EndurDeal(1005, TranStatus.VALIDATED, 127500.00,
                 "Shell Trading", "LNG", 50000.0));
-        repo.addDeal(new EndurDeal(1012, "Matured", 95000.00,
+        repo.addDeal(new EndurDeal(1012, TranStatus.MATURED, 95000.00,
                 "TotalEnergies", "Natural Gas", 75000.0));
-        repo.addDeal(new EndurDeal(1037, "Cancelled", 0.00,
+        repo.addDeal(new EndurDeal(1037, TranStatus.CANCELLED, 0.00,
                 "CNOOC", "LNG", 100000.0));
-        repo.addDeal(new EndurDeal(1041, "Validated", 132000.00,
+        repo.addDeal(new EndurDeal(1041, TranStatus.VALIDATED, 132000.00,
                 "Cheniere Energy", "LNG", 25000.0));
 
         double currentMarketPrice = 140000.00;
@@ -57,16 +57,11 @@ public class Main {
         for (EndurDeal deal : repo.getActiveDeals()) {
             System.out.println(deal);
         }
+
         System.out.println("");
         System.out.println("=== Shell Trading Deals ===");
         for (EndurDeal deal : repo.findByCounterparty("Shell Trading")) {
             System.out.println(deal);
         }
-
     }
 }
-
-
-
-
-
