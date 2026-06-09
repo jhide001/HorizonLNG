@@ -8,14 +8,16 @@ public class Main {
         System.out.println("");
 
         DealRepository repo = new DealRepository();
-        repo.addDeal(new EndurDeal(1005, TranStatus.VALIDATED, 127500.00,
-                "Shell Trading", "LNG", 50000.0));
+        repo.addDeal(new PhysicalDeal(1005, TranStatus.VALIDATED, 127500.00,
+                "Shell Trading", "LNG", 50000.0,
+                "Sabine Pass"));
         repo.addDeal(new EndurDeal(1012, TranStatus.MATURED, 95000.00,
                 "TotalEnergies", "Natural Gas", 75000.0));
         repo.addDeal(new EndurDeal(1037, TranStatus.CANCELLED, 0.00,
                 "CNOOC", "LNG", 100000.0));
-        repo.addDeal(new EndurDeal(1041, TranStatus.VALIDATED, 132000.00,
-                "Cheniere Energy", "LNG", 25000.0));
+        repo.addDeal(new PhysicalDeal(1041, TranStatus.VALIDATED, 132000.00,
+                "Cheniere Energy", "LNG", 25000.0,
+                "Freeport LNG"));
 
         double currentMarketPrice = 140000.00;
         int processedCount = 0;
