@@ -28,7 +28,7 @@ public class Main {
                 if (deal.isActive()) {
                     double mtm = deal.calculateMTM(currentMarketPrice);
                     System.out.println("[PROCESSED] " + deal
-                            + " | MTM: $" + mtm);
+                            + " | MTM: " + String.format("$%,.2f", mtm));
                     processedCount++;
                 } else {
                     System.out.println("[SKIPPED]   " + deal);
