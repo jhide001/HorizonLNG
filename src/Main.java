@@ -41,6 +41,8 @@ public class Main {
 
         System.out.println("");
         System.out.println("=== Batch Complete ===");
+        System.out.println("Portfolio MTM: "
+                + DealUtils.formatMTM(repo.getTotalMTM(currentMarketPrice)));
         System.out.println("Processed: " + processedCount);
         System.out.println("Skipped: " + skippedCount);
         System.out.println("Total: " + repo.getDealCount());

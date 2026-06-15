@@ -48,6 +48,15 @@ public class DealRepository {
         }
         return result;
     }
+    public double getTotalMTM(double marketPrice) {
+        double total = 0.0;
+        for (EndurDeal deal : deals) {
+            if (deal.isActive()) {
+                total = total + deal.calculateMTM(marketPrice);
+            }
+        }
+        return total;
+    }
 }
 
 
