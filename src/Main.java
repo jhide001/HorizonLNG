@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("=== Horizon Energy LNG ===");
         System.out.println("=== End-of-Day Reval Batch ===");
-        System.out.println("");
-
+        System.out.println();
+        System.out.println("=== End-of-Day Reval Batch ===");
         DealRepository repo = new DealRepository();
         repo.addDeal(new PhysicalDeal(1005, TranStatus.VALIDATED, 127500.00,
                 "Shell Trading", "LNG", 50000.0,
@@ -39,7 +37,7 @@ public class Main {
             }
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("=== Batch Complete ===");
         System.out.println("Portfolio MTM: "
                 + DealUtils.formatMTM(repo.getTotalMTM(currentMarketPrice)));
@@ -47,7 +45,7 @@ public class Main {
         System.out.println("Skipped: " + skippedCount);
         System.out.println("Total: " + repo.getDealCount());
 
-        System.out.println("");
+        System.out.println();
         System.out.println("=== Deal Lookup ===");
         EndurDeal lookup = repo.findByTranNum(1041);
         if (lookup != null) {
@@ -56,13 +54,13 @@ public class Main {
             System.out.println("Deal not found");
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("=== Active Deals Only ===");
         for (EndurDeal deal : repo.getActiveDeals()) {
             System.out.println(deal);
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("=== Shell Trading Deals ===");
         for (EndurDeal deal : repo.findByCounterparty("Shell Trading")) {
             System.out.println(deal);
