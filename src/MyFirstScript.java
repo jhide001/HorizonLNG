@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyFirstScript {
 
     public static void main(String[] args) {
@@ -20,14 +23,20 @@ public class MyFirstScript {
         System.out.println();
         System.out.println("=== Processing Deal Batch ===");
 
-        int[] dealNumbers = {1005, 1012, 1037, 1041, 1055, -99};
+        List<Integer> dealNumbers = new ArrayList<>();
+        dealNumbers.add(1005);
+        dealNumbers.add(1012);
+        dealNumbers.add(1037);
+        dealNumbers.add(1041);
+        dealNumbers.add(1055);
+        dealNumbers.add(-99);
 
-        for (int i = 0; i < dealNumbers.length; i++) {
+        for (int dealNum : dealNumbers) {
             try {
-                validateDeal(dealNumbers[i]);
-                logSuccess(dealNumbers[i]);
+                validateDeal(dealNum);
+                logSuccess(dealNum);
             } catch (Exception e) {
-                logError(dealNumbers[i], e.getMessage());
+                logError(dealNum, e.getMessage());
             }
         }
     }
@@ -49,5 +58,5 @@ public class MyFirstScript {
             throw new Exception("Missing price data");
         }
     }
-}
 
+}
