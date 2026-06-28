@@ -23,17 +23,7 @@ public class MyFirstScript {
         System.out.println();
         System.out.println("=== Processing Deal Batch ===");
 
-        List<EndurDeal> deals = new ArrayList<>();
-        deals.add(new EndurDeal(1005, TranStatus.VALIDATED,
-                127500.00, "Shell Trading", "LNG", 50000.0));
-        deals.add(new EndurDeal(1012, TranStatus.MATURED,
-                95000.00, "TotalEnergies", "GAS", 75000.0));
-        deals.add(new EndurDeal(1037, TranStatus.CANCELLED,
-                0.00, "CNOOC", "LNG", 100000.0));
-        deals.add(new EndurDeal(1041, TranStatus.VALIDATED,
-                132000.00, "Cheniere Energy", "LNG", 25000.0));
-        deals.add(new EndurDeal(1055, TranStatus.VALIDATED,
-                88000.00, "BP Energy", "GAS", 60000.0));
+        List<EndurDeal> deals = OracleLoader.loadDeals();
 
         for (EndurDeal deal : deals) {
             try {
