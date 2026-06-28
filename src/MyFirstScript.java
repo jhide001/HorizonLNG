@@ -23,39 +23,48 @@ public class MyFirstScript {
         System.out.println();
         System.out.println("=== Processing Deal Batch ===");
 
-        List<Integer> dealNumbers = new ArrayList<>();
-        dealNumbers.add(1005);
-        dealNumbers.add(1012);
-        dealNumbers.add(1037);
-        dealNumbers.add(1041);
-        dealNumbers.add(1055);
-        dealNumbers.add(-99);
+        List<EndurDeal> deals = new ArrayList<>();
+        deals.add(new EndurDeal(1005, TranStatus.VALIDATED,
+                127500.00, "Shell Trading", "LNG", 50000.0));
+        deals.add(new EndurDeal(1012, TranStatus.MATURED,
+                95000.00, "TotalEnergies", "GAS", 75000.0));
+        deals.add(new EndurDeal(1037, TranStatus.CANCELLED,
+                0.00, "CNOOC", "LNG", 100000.0));
+        deals.add(new EndurDeal(1041, TranStatus.VALIDATED,
+                132000.00, "Cheniere Energy", "LNG", 25000.0));
+        deals.add(new EndurDeal(1055, TranStatus.VALIDATED,
+                88000.00, "BP Energy", "GAS", 60000.0));
 
-        for (int dealNum : dealNumbers) {
+        for (EndurDeal deal : deals) {
             try {
-                validateDeal(dealNum);
-                logSuccess(dealNum);
+                validateDeal(deal);
+                logSuccess(deal);
             } catch (Exception e) {
-                logError(dealNum, e.getMessage());
+                logError(deal, e.getMessage());
             }
         }
     }
 
-    public static void logSuccess(int dealNum) {
-        System.out.println("[PROCESSED] Deal: " + dealNum);
+    public static void logSuccess(EndurDeal deal) {
+        System.out.println("[PROCESSED] Deal: " + deal.getTranNum()
+                + " | " + deal.getCounterparty()
+                + " | " + deal.getCommodity()
+                + " | $" + deal.getDealPrice());
     }
 
-    public static void logError(int dealNum, String reason) {
-        System.out.println("[ERROR] Deal: " + dealNum
+    public static void logError(EndurDeal deal, String reason) {
+        System.out.println("[ERROR] Deal: " + deal.getTranNum()
+                + " | " + deal.getCounterparty()
                 + " failed - " + reason);
     }
 
-    public static void validateDeal(int dealNum) throws Exception {
-        if (dealNum <= 0) {
+    public static void validateDeal(EndurDeal deal) throws Exception {
+        if (deal.getTranNum() <= 0) {
             throw new Exception("Deal number must be greater than zero");
         }
-        if (dealNum == 1037) {
-            throw new Exception("Missing price data");
+        if (!deal.isActive()) {
+            throw new Exception("Deal is not active - status: "
+                    + deal.getTranStatus());
         }
     }
 
