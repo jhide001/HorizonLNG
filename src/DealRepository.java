@@ -74,9 +74,19 @@ public class DealRepository {
                 String commodity = parts[4].trim();
                 double volume = Double.parseDouble(parts[5].trim());
 
-                EndurDeal deal = new EndurDeal(tranNum, status, dealPrice,
-                        counterparty, commodity, volume);
-                addDeal(deal);
+                if (parts.length > 6 && !parts[6].trim().isEmpty()) {
+                    String deliveryPoint = parts[6].trim();
+                    double pricePerUnit = Double.parseDouble(parts[7].trim());
+                    PhysicalDeal deal = new PhysicalDeal(tranNum, status, dealPrice,
+                            counterparty, commodity, volume,
+                            deliveryPoint, pricePerUnit);
+                    addDeal(deal);
+                } else {
+                    EndurDeal deal = new EndurDeal(tranNum, status, dealPrice,
+                            counterparty, commodity, volume);
+                    addDeal(deal);
+                }
+
             }
             reader.close();
         } catch (Exception e) {

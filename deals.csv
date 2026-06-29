@@ -1,5 +1,5 @@
-﻿tranNum,status,dealPrice,counterparty,commodity,volume
-1005,VALIDATED,127500.00,Shell Trading,LNG,50000.0
-1012,MATURED,95000.00,TotalEnergies,Natural Gas,75000.0
-1037,CANCELLED,0.00,CNOOC,LNG,100000.0
-1041,VALIDATED,132000.00,Cheniere Energy,LNG,25000.0
+﻿tranNum,status,dealPrice,counterparty,commodity,volume,deliveryPoint,pricePerUnit
+1005,VALIDATED,127500.00,Shell Trading,LNG,50000.0,Sabine Pass,2500.00
+1012,MATURED,95000.00,TotalEnergies,Natural Gas,75000.0,,
+1037,CANCELLED,0.00,CNOOC,LNG,100000.0,,
+1041,VALIDATED,132000.00,Cheniere Energy,LNG,25000.0,Freeport LNG,3000.00
