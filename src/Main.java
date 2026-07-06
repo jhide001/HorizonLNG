@@ -55,6 +55,8 @@ public class Main {
         System.out.println("=== Shell Trading Deals ===");
         for (EndurDeal deal : repo.findByCounterparty("Shell Trading")) {
             System.out.println(deal);
+
+
         }
     }
 }
